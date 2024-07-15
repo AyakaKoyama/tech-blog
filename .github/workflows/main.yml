@@ -59,7 +59,12 @@ jobs:
         run: ./node_modules/.bin/firebase use ${{ secrets.FIREBASE_PROJECT_ID }}
       - name: Deploy to Firebase Hosting
         run: |
-          ./node_modules/.bin/firebase deploy
+          touch .env
+          echo "SERVICE_DOMAIN=${{ secrets.SERVICE_DOMAIN }}" >> .env
+          echo "CMS_API_KEY=${{ secrets.CMS_API_KEY }}" >> .env
+          echo "QIITA_API_KEY=${{ secrets.QIITA_API_KEY }}" >> .env
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
+          ./node_modules/.bin/firebase use ${{ secrets.FIREBASE_PROJECT_ID }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           FIREBASE_CLI_EXPERIMENTS: webframeworks

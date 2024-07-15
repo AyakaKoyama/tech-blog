@@ -16,9 +16,10 @@ export const ArticleList: React.FC = () => {
 
   //クライアントサイドでデータを取得する際にはfetch("/api")を使う
   useEffect(() => {
-    fetch("/api")
+    fetch("/api/qiita")
       .then((res) => res.json())
-      .then((data) => setArticles(data));
+      .then((data) => setArticles(data))
+      .catch((err) => console.error("Error fetching articles:", err));
   }, []);
 
   return (
