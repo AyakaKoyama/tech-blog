@@ -10,6 +10,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "firebase": "^10.12.3",
+    "microcms-js-sdk": "^3.1.2",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

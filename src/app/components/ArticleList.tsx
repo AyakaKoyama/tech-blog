@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 
 interface Article {
+  id: string;
   title: string;
   date: string;
   url: string;
@@ -16,7 +17,7 @@ export const ArticleList: React.FC = () => {
 
   //クライアントサイドでデータを取得する際にはfetch("/api")を使う
   useEffect(() => {
-    fetch("/api/qiita")
+    fetch("/api/articles")
       .then((res) => res.json())
       .then((data) => setArticles(data))
       .catch((err) => console.error("Error fetching articles:", err));
