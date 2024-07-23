@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="p-4">
       <section>
-        <ArticleList />
+        <ArticleList apiEndpoint="/api/microcms" />
       </section>
     </div>
   );

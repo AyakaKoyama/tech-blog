@@ -21,7 +21,7 @@ export async function getQiitaArticles() {
 
   //サムネイルはサンプルから取得
   const articles = await response.json();
-  return articles.slice(0, 4).map((article, index) => ({
+  return articles.slice(0, 20).map((article, index) => ({
     ...article,
     thumbnail: sampleData[index % sampleData.length].thumbnail,
   }));
