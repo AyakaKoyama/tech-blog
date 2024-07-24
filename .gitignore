@@ -35,3 +35,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.firebase/tech-blog-8ec93/functions/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node
+.firebase/tech-blog-8ec93/functions/node_modules/@next/swc-linux-x64-musl/next-swc.linux-x64-musl.node
