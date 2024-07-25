@@ -1,5 +1,4 @@
-import { title } from "process";
-import React from "react";
+"use client";
 
 interface ArticleCardProps {
   title: string;
@@ -17,21 +16,27 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   content,
 }) => {
   console.log("ArticleCard URL:", url);
+
   return (
-    <div className="p-4 border rounded-lg shadow-lg">
-      <a href={url} rel="noopener noreferrer">
-        <img
-          src={thumbnail}
-          alt={title}
-          className="w-full h-40 object-cover rounded-t-lg"
-        />
-      </a>
-      <div className="p-4">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <p className="text-gray-600">{content}</p>
-        <p className="text-gray-600">{date}</p>
+    <>
+      <div className="p-4 border rounded-lg shadow-lg">
+        <a href={url} rel="noopener noreferrer">
+          <img
+            src={thumbnail}
+            alt={title}
+            className="w-full h-40 object-cover rounded-t-lg"
+          />
+        </a>
+        <div className="p-4">
+          <h2 className="text-xl font-bold">{title}</h2>
+          <p
+            className="text-gray-600"
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></p>
+          <p className="text-gray-600">{date}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

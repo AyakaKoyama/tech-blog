@@ -6,6 +6,7 @@ export default function PersonalPage() {
   return (
     <div className="p-4">
       <section>
+        <a>個人記事一覧</a>
         <ArticleList apiEndpoint="/api/qiita" />
       </section>
     </div>
