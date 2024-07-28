@@ -1,4 +1,8 @@
 "use client";
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 interface ArticleCardProps {
   title: string;
@@ -16,6 +20,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   content,
 }) => {
   console.log("ArticleCard URL:", url);
+  console.log("content", content);
 
   return (
     <>
@@ -29,10 +34,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         </a>
         <div className="p-4">
           <h2 className="text-xl font-bold">{title}</h2>
-          <p
-            className="text-gray-600"
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></p>
+
+          <div className="text-gray-600">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+          </div>
+
           <p className="text-gray-600">{date}</p>
         </div>
       </div>

@@ -1,13 +1,15 @@
 import ArticleCard from "@/app/components/ArticleCard";
 import { ArticleList } from "@/app/components/ArticleList";
 import { Blogs, getBlogs, getBlogsList } from "@/pages/api/microcms";
-
+import { remark } from "remark";
+import html from "remark-html";
 import React from "react";
 
 // ブログデータ取得関数
 async function fetchBlog(id: string): Promise<Blogs | null> {
   try {
     const blog = await getBlogs(id);
+    console.log("Fetched blog:", blog);
     return blog;
   } catch (error) {
     console.error("Error fetching blog:", error);
@@ -32,6 +34,15 @@ const BlogPage = async ({ params }: { params: { id: string } }) => {
     return <div>Blog not found</div>;
   }
 
+  // コンテンツをMarkdownからHTMLに変換
+  // let contentHtml = "";
+  // try {
+  //   const processedContent = await remark().use(html).process(blog.content);
+  //   contentHtml = processedContent.toString();
+  //   console.log("Processed content HTML:", contentHtml); // ログ出力を追加
+  // } catch (error) {
+  //   console.error("Error processing content:", error); // エラーログを追加
+  // }
   return (
     <div className="p-4">
       <section>
