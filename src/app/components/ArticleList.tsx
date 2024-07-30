@@ -20,7 +20,7 @@ interface ArticleListProps {
   apiEndpoint: string;
 }
 
-export const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
+const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
   const [articles, setArticles] = React.useState<Article[]>([]);
 
   //クライアントサイドでデータを取得する際にはfetch("/api")を使う
@@ -39,6 +39,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
       {articles.map((article, index) => (
         <>
           <ArticleCard
+            data-testid="article-card"
             key={index}
             title={article.title}
             date={article.date}
@@ -47,6 +48,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
             content={article.content}
           />
           <a
+            data-testid="read-more"
             href={article.url}
             className="text-blue-500 hover:underline"
             rel="noopener noreferrer"
@@ -58,3 +60,4 @@ export const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
     </div>
   );
 };
+export default ArticleList;

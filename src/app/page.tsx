@@ -1,4 +1,4 @@
-import { ArticleList } from "./components/ArticleList";
+import ArticleList from "./components/ArticleList";
 
 export default function Page() {
   //データ呼び出し
