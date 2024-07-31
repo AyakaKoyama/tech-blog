@@ -13,7 +13,7 @@ const config: Config = {
       useESM: true,
     },
   },
-  transformIgnorePatterns: ["/node_modules/(?!(react-markdown)/)"],
+  transformIgnorePatterns: ["/node_modules/(?!(react-markdown|other-module)/)"],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   transform: {
