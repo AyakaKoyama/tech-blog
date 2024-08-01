@@ -1,8 +1,5 @@
 import ArticleCard from "@/app/components/ArticleCard";
 import { Blogs, getBlogs, getBlogsList } from "@/pages/api/microcms";
-import { remark } from "remark";
-import html from "remark-html";
-import React from "react";
 
 // ブログデータ取得関数
 async function fetchBlog(id: string): Promise<Blogs | null> {
