@@ -1,5 +1,4 @@
 import ArticleCard from "@/app/components/ArticleCard";
-import { ArticleList } from "@/app/components/ArticleList";
 import { Blogs, getBlogs, getBlogsList } from "@/pages/api/microcms";
 import { remark } from "remark";
 import html from "remark-html";
