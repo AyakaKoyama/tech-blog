@@ -13,12 +13,13 @@ const config: Config = {
       useESM: true,
     },
   },
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Babelで変換
+  },
   transformIgnorePatterns: ["/node_modules/(?!(react-markdown|other-module)/)"],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
-  transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
-  },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };
 
 export default createJestConfig(config);
