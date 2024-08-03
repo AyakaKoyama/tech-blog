@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext", //es5
+    "target": "es5",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -17,7 +17,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx", //preserve
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
