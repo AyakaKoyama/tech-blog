@@ -32,6 +32,15 @@ beforeAll(() => {
   );
 });
 
+//react-markdownモック
+jest.mock("react-markdown", () => (props) => {
+  return <>{props.children}</>;
+});
+
+jest.mock("remark-gfm", () => () => {});
+
+jest.mock("rehype-raw", () => () => {});
+
 describe("article-card-view", () => {
   it("ブログ記事の一覧が表示される", async () => {
     render(<ArticleList apiEndpoint="/api/microcms" />);

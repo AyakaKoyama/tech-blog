@@ -35,11 +35,13 @@ const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div
+      data-testid="article-card"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+    >
       {articles.map((article, index) => (
         <>
           <ArticleCard
-            data-testid="article-card"
             key={index}
             title={article.title}
             date={article.date}
