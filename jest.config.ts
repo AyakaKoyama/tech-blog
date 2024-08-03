@@ -6,7 +6,8 @@ const createJestConfig = nextJest({
 });
 
 const config: Config = {
-  preset: "ts-jest/presets/default-esm",
+  //react-markdown を babel-jest でコンパイルして ESM => CJS に変更
+  preset: "ts-jest/presets/js-with-babel",
   globals: {
     "ts-jest": {
       tsconfig: "tsconfig.json",
@@ -16,10 +17,10 @@ const config: Config = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Babelで変換
   },
-  transformIgnorePatterns: ["/node_modules/(?!(react-markdown|other-module)/)"],
+  transformIgnorePatterns: ["/node_modules/(?!react-markdown|rehype-raw)"],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
 export default createJestConfig(config);
