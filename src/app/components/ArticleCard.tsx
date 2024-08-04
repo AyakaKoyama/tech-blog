@@ -23,7 +23,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 
   return (
     <>
-      <div className="p-4 border rounded-lg shadow-lg">
+      <div
+        className="p-4 border rounded-lg shadow-lg"
+        data-testid="article-card"
+      >
         <a href={url} rel="noopener noreferrer">
           <img
             src={thumbnail}

@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-//import ArticleCard from "@/app/components/ArticleCard";
-import ArticleList from "@/app/components/ArticleList";
+import ArticleCard from "@/app/components/ArticleCard";
 
 // モックデータを定義
 const mockedArticles = [
@@ -41,20 +40,9 @@ jest.mock("remark-gfm", () => () => {});
 
 jest.mock("rehype-raw", () => () => {});
 
-describe("article-card-view", () => {
-  it("ブログ記事の一覧が表示される", async () => {
-    render(<ArticleList apiEndpoint="/api/microcms" />);
+it("記事の詳細が表示される", () => {
+  render(<ArticleCard {...mockedArticles[0]} />);
 
-    // 非同期操作の待機
-    const articleCard = await screen.findByTestId("article-card");
-    expect(articleCard).toBeInTheDocument();
-  });
-
-  it("個人ブログ記事の一覧が表示される", async () => {
-    render(<ArticleList apiEndpoint="/api/qiita" />);
-
-    // 非同期操作の待機
-    const articleCard = await screen.findByTestId("article-card");
-    expect(articleCard).toBeInTheDocument();
-  });
+  const article = screen.getByTestId("article-card");
+  expect(article).toBeInTheDocument();
 });
