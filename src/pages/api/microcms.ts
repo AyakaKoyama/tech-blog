@@ -3,8 +3,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 // クライアントの作成
 const client = createClient({
-  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_API_URL ?? "",
-  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY ?? "",
+  serviceDomain: process.env.MICROCMS_API_URL ?? "",
+  apiKey: process.env.MICROCMS_API_KEY ?? "",
 });
 
 // お知らせ用の型を定義
