@@ -18,9 +18,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   thumbnail,
   content,
 }) => {
-  console.log("ArticleCard URL:", url);
-  console.log("content", content);
-
   return (
     <>
       <div
