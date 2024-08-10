@@ -21,7 +21,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   return (
     <>
       <div
-        className="p-4 border rounded-lg shadow-lg"
+        className="card w-62 bg-base-100 shadow-xl"
         data-testid="article-card"
       >
         <a href={url} rel="noopener noreferrer">

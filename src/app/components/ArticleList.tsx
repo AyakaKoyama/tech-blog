@@ -35,27 +35,21 @@ const ArticleList: React.FC<ArticleListProps> = ({ apiEndpoint }) => {
   }, []);
 
   return (
-    <div data-testid="article-card" className="grid grid-cols-5  gap-4">
-      {articles.map((article, index) => (
-        <>
-          <ArticleCard
-            key={index}
-            title={article.title}
-            date={article.date}
-            url={article.url}
-            thumbnail={article.thumbnail}
-            content={article.content}
-          />
-          <a
-            data-testid="read-more"
-            href={article.url}
-            className="text-blue-500 hover:underline"
-            rel="noopener noreferrer"
-          >
-            Read more
-          </a>
-        </>
-      ))}
+    <div className="w-full px-20 py-20">
+      <div data-testid="article-card" className="grid grid-cols-4  gap-4">
+        {articles.map((article, index) => (
+          <>
+            <ArticleCard
+              key={index}
+              title={article.title}
+              date={article.date}
+              url={article.url}
+              thumbnail={article.thumbnail}
+              content={article.content}
+            />
+          </>
+        ))}
+      </div>
     </div>
   );
 };

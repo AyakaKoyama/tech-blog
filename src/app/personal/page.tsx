@@ -5,8 +5,10 @@ export default function PersonalPage() {
   return (
     <div className="p-4">
       <section>
-        <a className="text-xl font-bold">個人記事一覧</a>
-        <a className="text-xl font-bold" href="/">
+        <div className="bg-green-300 w-full h-40 flex items-center px-20 mb-10">
+          <h1 className="text-3xl  font-bold">個人記事一覧</h1>
+        </div>
+        <a className="text-3xl font-bold" href="/">
           戻る
         </a>
         <ArticleList apiEndpoint="/api/qiita" />
