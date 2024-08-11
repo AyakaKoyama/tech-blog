@@ -46,3 +46,12 @@ it("記事の詳細が表示される", () => {
   const article = screen.getByTestId("article-card");
   expect(article).toBeInTheDocument();
 });
+
+it("クリックすると新しいタブで記事が開く", () => {
+  render(<ArticleCard {...mockedArticles[0]} />);
+
+  const link = screen.getByRole("link");
+  expect(link).toHaveAttribute("href", "https://example.com");
+  expect(link).toHaveAttribute("target", "_blank");
+  expect(link).toHaveAttribute("rel", "noopener noreferrer");
+});

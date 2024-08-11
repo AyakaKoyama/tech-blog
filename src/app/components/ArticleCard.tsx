@@ -20,25 +20,30 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   return (
     <>
-      <div
-        className="card w-62 bg-base-100 shadow-xl"
-        data-testid="article-card"
-      >
-        <a href={url} rel="noopener noreferrer">
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full h-40 object-cover rounded-t-lg"
-          />
-        </a>
-        <div className="p-4">
-          <h2 className="text-xl font-bold">{title}</h2>
+      <div className="mx-auto p-4 my-20 justify-center flex">
+        <div
+          className="bg-white shadow-lg rounded-lg overflow-hidden p-10 max-w-[1000px] w-full h-100 "
+          data-testid="article-card"
+        >
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <img
+              src={thumbnail}
+              alt={title}
+              className="w-full h-96 object-cover rounded-t-lg"
+            />
+          </a>
+          <div className="p-4">
+            <h2 className="text-3xl font-bold mb-5">{title}</h2>
 
-          <div className="text-gray-600">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+            <div className=" text-2xl text-gray-600 mb-5">
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {content}
+              </ReactMarkdown>
+            </div>
+            <div className="text-right">
+              <p className=" text-xl text-gray-600">{date}</p>
+            </div>
           </div>
-
-          <p className="text-gray-600">{date}</p>
         </div>
       </div>
     </>
